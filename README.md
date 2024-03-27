@@ -1,2 +1,2 @@
 # EECE372
-Microprocessor Structure and Application
+Microprocessor Architect and Application
