@@ -1,4 +1,5 @@
-![[L08_Arm_Cortex_M0_P1-2.jpg]]
+<img width="700" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/002b101a-7858-404c-a243-e367c49a0bf4">
+
 ## Basic terminology
 - Instruction - 명령어의 집합
 - operation - 연산자(명령문)
@@ -7,7 +8,8 @@
 ## CPU core
 #### Simplified Structure
 
-![[Pasted image 20240405024332.png]]
+<img width="671" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/23d2b5a9-f7f6-48f2-9bb5-8883f1277fff">
+
 - Program memory(PM)
 	- 연속된 instruction 다발이 저장되는 장소
 - Program counter(PC)
@@ -53,7 +55,7 @@ ARM Cortex-M0+ 프로세서는 ARMv6 아키텍처를 구현한다
 
 ## Registers in Programmer's model
 
-![[Pasted image 20240405032821.png]]
+<img width="680" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/765eb034-b6cf-48a2-a5bb-93811b8e292c">
 
 - 다수의 32-bit 레지스터
 - General purposed registers(GPRs)
@@ -63,7 +65,8 @@ ARM Cortex-M0+ 프로세서는 ARMv6 아키텍처를 구현한다
 	- R15: Program counter(다음 instruction의 주소를 hold 하고 있음)
 - Special Purposed registers(SPRs)
 	- Program status register(PSR): 세가지 다른 관점
-	- ![[Pasted image 20240405033513.png]]
+	- <img width="645" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/2b61f989-5e1f-438a-be4a-625ddefd505d">
+
 		- Application PSR(APSR): condition code flag를 보여준다
 			- Condition code flag: instruction의 결과가 음수면 N, 0이면 Z, 또는 결과에서 Carry(C)나 Overflow(V)가 발생했는지를 나타냄
 		- Inturrupt PSR(IPSR): exception number를 저장 // similar with error code
@@ -90,12 +93,13 @@ ARMv6-M architecture: 32-bit 주소 공간을 지원하고, 2^32개의 위치가
 - Private bus with fast access to peripherals
 - Space for system control/status registers
 
-![[Pasted image 20240405040426.png]]
+<img width="702" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/9032cec0-b058-40d1-83ce-5cb2dd9b2cb0">
+
 KL25Z128VLK4에서는 128KB의 공간을 code 저장을 위한 ROM flashing 에 사용하고, 16KB 공간을 read/write memory(SRAM)
 
 ## Endianness
 
-![[Pasted image 20240405040924.png]]
+<img align="right" width="232" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/245ae1bc-f59b-4c94-923c-286790f40f2c">
 
 - endianness
 	- multi-byte 구조를 1차원의 메모리에 저장하는 순서를 의미한다.
