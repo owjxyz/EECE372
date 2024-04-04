@@ -88,7 +88,9 @@ chip을 제작하는데 설계자들의 option을 제한하는 요소
 ## Processor(CPU) - Microcontroller - Board
 
 CPU - ARM Cortex-M0+
-![[Pasted image 20240405015324.png]]
+
+<img width="565" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/ee6c6f13-d73a-4772-89f6-fe71d98826d1">
+
 - instructions/data/code에 대한 정보를 얻기 위해 메모리와 통신함
 - AHB-Lite interface를 통해서 프로세서 외부에 있는 메모리와 통신한다
 - NVIC(Nested Vectored Interrupt Controller)를 사용함
