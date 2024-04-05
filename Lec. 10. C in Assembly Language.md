@@ -23,27 +23,27 @@ Linker/Loader: 기계어 코드를 기존의 library file들과 link해줌
 
 ## If/Else
 
-<img width="200" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/ab1886c5-c52b-4a60-a38b-a30cca5e48c6">
+<img width="100" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/ab1886c5-c52b-4a60-a38b-a30cca5e48c6">
 
-<img width="686" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/f948f032-f9e0-4c37-9c6a-b2d0b23dede4">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/f948f032-f9e0-4c37-9c6a-b2d0b23dede4">
 
 코드의 line number는 2자리씩 차이나는데 이는 어셈블리 코드가 2바이트씩 자리를 띄운다고 생각하면 된다.
 
 2900, d001(16-bit Thumb mode)등의 code가 기계어 명령어 인데, 명령이 처리해주는 레지스터의 주소에 따라 같은 어셈블리 명령어라도 code가 달라지기도 한다. 
 
-<img width="667" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/dc14c1d2-81a8-45db-b5b0-a3e5b5e93351">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/dc14c1d2-81a8-45db-b5b0-a3e5b5e93351">
 
 방금 전의 조건문을 diagram으로 표현하면 위 그림과 같다.
 
 ## Switch
 
-<img width="200" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/9e1b4077-7d82-48f0-9d31-70b53e9271c5">
-<img width="695" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/b03b91cc-7a43-4bf5-85d2-c9bcc558e783">
+<img width="170" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/9e1b4077-7d82-48f0-9d31-70b53e9271c5">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/b03b91cc-7a43-4bf5-85d2-c9bcc558e783">
 
 <img width="713" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/c4d85c9c-86e9-4e49-93d8-21e2f78198b8">
 
 ## Do while
-<img width="662" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/68bca063-98a9-45bf-9b47-4d0c04f88ceb">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/68bca063-98a9-45bf-9b47-4d0c04f88ceb">
 
 CMP는 r1 레지스터의 값과 0x14를 빼준 결과의 flag를 업데이트하고,
 
@@ -55,29 +55,29 @@ CMP를 수행해줄 때, 두 수를 Unsigned 취급해서 수행해준다.
 
 0x14 = 20을 two's complement로 빼 주었을 때, -20 = 1110\~~와  x를 더했을 때, 결과의 앞자리의 bit가 0이라면 carry가 발생하였다는 것을 말하고, x가 더 크다는 뜻이므로, C = 1이면 x가 더 크다. 반대로 앞 자리의 bit가 1이라면 carry가 발생하지 않은 경우(C = 0)이고, 결과가 음수이게 되므로 x가 더 작다는 것을 뜻하게 된다.
 
-<img width="682" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/f3f93947-79d1-4bdd-bb87-e6eb51668f17">
+<img width="400" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/f3f93947-79d1-4bdd-bb87-e6eb51668f17">
 
 ## While
 
-<img width="688" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/5bf7355e-0caf-499a-b450-1c3592cb5182">
+<img width="600" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/5bf7355e-0caf-499a-b450-1c3592cb5182">
 
 While은 Do while과는 달리 먼저 조건을 check를 해주는 link로 넘어가서, 조건을 만족하는 경우에만 code가 실행되도록 해준다.
 
-<img width="618" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/970027d7-4d31-47cd-8d9e-ace559ff1e42">
+<img width="400" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/970027d7-4d31-47cd-8d9e-ace559ff1e42">
 
 ## FOR
 
-<img width="701" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/32301a6a-cc70-4e96-a708-e1f17d30480e">
+<img width="700" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/32301a6a-cc70-4e96-a708-e1f17d30480e">
 
 For문은 먼저 초기화를 수행해준 후에 While문과 비슷하게 조건을 check하고, 만족하는 경우 반복문 내의 code를 수행해주도록 한다.
 
-<img width="690" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/f512a354-bffe-4b88-970f-4fd6e657d000">
+<img width="600" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/f512a354-bffe-4b88-970f-4fd6e657d000">
 
 ## Calling Subroutines
 
 C언어에서의 Function의 경우 subroutine을 통해서 구현된다.
 
-<img width="679" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/49f51af1-8ea9-47f3-948e-e901e947e224">
+<img width="600" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/49f51af1-8ea9-47f3-948e-e901e947e224">
 
 함수 호출이 일어나면 MOVS를 통해서 함수에 전달해주는 값을 레지스터에 복사를 시켜준다. 이후 fun5라는 function을 호출하고 함수가 수행되는 곳으로 jump를 해주게 되는데 현재 위치(함수의 반환주소, 위 코드의 경우 STR 문의 주소)를 LR(link register)에 저장해준다.
 
@@ -110,7 +110,7 @@ Function의 return value는 r0, r1, stack 을 통해 전달받는다. 64bit retu
 
 ## Prolog and Epilog
 
-<img width="684" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/2af39530-bc69-42a6-a64a-c4bd26beca10">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/2af39530-bc69-42a6-a64a-c4bd26beca10">
 
 함수가 실행될 때를 prolog, 함수가 끝날 때를 Epilog라고 한다.
 
@@ -174,7 +174,7 @@ PUSH {r0-r3,lr}을 통해 stack에 해당 변수들을 저장한다.
 
 이후 SUB sp, sp, \#0x10 을 통해서 변수를 저장할 공간을 할당하고, r1에 임시적으로 4, 5, 6이라는 값을 저장하여 각각 \[sp, \#8], \[sp, \#4], \[sp, \#0]에 저장한다. 
 
-<img width="687" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/56c8e346-e0ec-447d-b47d-1a2767199291">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/56c8e346-e0ec-447d-b47d-1a2767199291">
 
 #### Dynamically allocated memory
 
@@ -188,4 +188,4 @@ r1 = r1 + 1을 수행
 
 이 r1을 다시 r0에 저장
 
-<img width="644" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/e2ba2291-c0ea-497d-93e0-acf4d4bcf506">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/e2ba2291-c0ea-497d-93e0-acf4d4bcf506">
