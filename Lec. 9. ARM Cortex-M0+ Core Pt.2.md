@@ -13,7 +13,7 @@
 
 ## Cortex-M0+ instructions
 
-![[Pasted image 20240406014208.png]]
+<img width="694" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/ac390883-9cd6-4d9a-9520-c1d78ee99ded">
 
 #### Data movement instructions
 
@@ -107,7 +107,7 @@ Stack Instructions
 - ex) B Target_label -> Target_label로 이동
 - Conditional branch: 주어진 조건을 만족하면 프로그램 특정 목적지 주소로 이동하여 실행된다.
 - B 뒤에 특정 접미사를 추가해주어 조건을 지정해줄 수 있다. (BEQ, BNE 등등)
-- ![[Pasted image 20240406031533.png]]
+- <img width="640" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/30a8b927-3006-456a-979d-9910627311a2">
 - ex) Branch if equal -> BEQ Target_label
 - ex) Branch if not equal -> BNE Target_label
 - ex) Branch if greater than -> BGT Target_label
