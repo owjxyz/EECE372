@@ -174,7 +174,7 @@ PUSH {r0-r3,lr}을 통해 stack에 해당 변수들을 저장한다.
 
 이후 SUB sp, sp, \#0x10 을 통해서 변수를 저장할 공간을 할당하고, r1에 임시적으로 4, 5, 6이라는 값을 저장하여 각각 \[sp, \#8], \[sp, \#4], \[sp, \#0]에 저장한다. 
 
-<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/56c8e346-e0ec-447d-b47d-1a2767199291">
+<img width="500" alt="image" src="https://github.com/owjxyz/EECE372/assets/89694988/e2ba2291-c0ea-497d-93e0-acf4d4bcf506">
 
 #### Dynamically allocated memory
 
