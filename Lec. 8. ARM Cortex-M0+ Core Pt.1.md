@@ -105,7 +105,6 @@ KL25Z128VLK4에서는 128KB의 공간을 code 저장을 위한 ROM flashing 에 
 	- multi-byte 구조를 1차원의 메모리에 저장하는 순서를 의미한다.
 - little-endian
 	- Least-significant byte가 메모리에 먼저 저장된다.
-	- 사람이 읽는 순서 상 더 편함.
 - least-significant
 	- 2바이트의 경우 0~255를 나타내는 앞쪽 바이트(작은 자리수)를 의미한다. 
 - big-endian
