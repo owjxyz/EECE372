@@ -12,7 +12,8 @@ mcu는 0또는 1로 이루어짐
 
 ## Input Signals
 입력 전압의 유효한 범위를 가진다.
-![[Pasted image 20240531224128.png]]
+<img width="699" alt="Pasted image 20240531224128" src="https://github.com/owjxyz/EECE372/assets/89694988/5b00754f-8f28-47ac-93b0-067841b66a57">
+
 
 입력 전압 => VDD에 대한 함수 (Logic 0, Logic 1)
 Invalid region은 Overvoltage와 undefined 두 가지 존재
@@ -51,19 +52,23 @@ MCU 핀에 간단한 장치들을 어떻게 연결?
 - 다른 MCU 군에서 다르게 동작 -> 새로운 설계 필요로 함
 ## Memory-mapped I/O
 어떻게 I/O 모듈을 조절해줄 수 있을까?
-![[Pasted image 20240531230933.png]]
+<img width="665" alt="Pasted image 20240531230933" src="https://github.com/owjxyz/EECE372/assets/89694988/3f9a7d80-dae6-4116-ab5b-be73689d6925">
+
 메모리랑 I/O의 버스를 묶어서 Control / Address / Data line을 공유한다.
 프로세서는 입출력 장치의 주소를 메모리 주소처럼 접속할 수 있다.
 connection 개수 줄임. -> 높은 범용성을 위해서는 몇 가지 제어 신호가 더 필요할 수 있습니다.
 프로세서로 데이터 송/수신 과정 표준화 ->  비동기식 동기화가 메모리에서는 Option, I/O장치에서는 필수(GPIO는 Ascynchronous)
-![[Pasted image 20240531231308.png]]
+<img width="801" alt="Pasted image 20240531231308" src="https://github.com/owjxyz/EECE372/assets/89694988/9541fc66-ae4c-45ea-b688-74b4f18f8f78">
+
 => memory mapped i/o 를 사용하는 컴퓨터의 주소 공간 -> i/o 레지스터 주소를 일부분 포함
 ## Control registers and C code
 주변 장치는 제어 레지스터로 구성된다
 - 주변기기 동작을 설정해주고
 - 주변기기 상태 체크
 - 주변기기로 데이터 이동
-System Integration Module ![[Pasted image 20240531232033.png]]
+System Integration Module
+<img width="714" alt="Pasted image 20240531232033" src="https://github.com/owjxyz/EECE372/assets/89694988/1f0bfe22-c79b-4ff8-86a4-9537d08c7972">
+
 1. **System Options Registers (SIM_SOPT1, SIM_SOPT1CFG, SIM_SOPT2, 등)**:
     - 시스템 옵션 설정
     - MCU의 다양한 기능과 옵션을 설정하는 데 사용됩니다.
@@ -81,4 +86,4 @@ CMSIS(Cortex Microcontroller Software Interface Standard)
 ex) SIM_SCGC5 register에 접속하고 싶으면 
 SIM의 주소값을 미리 박아두고, 포인터를 통해 해당 값에 접속할 수 있다.
 SIM->SCGC5를 통해, SIM_SCGC5 register에 접속 가능.
-![[Pasted image 20240531232809.png]]
+<img width="809" alt="Pasted image 20240531232809" src="https://github.com/owjxyz/EECE372/assets/89694988/d10c18d0-32da-4d4a-a381-71a839a27dd8">
