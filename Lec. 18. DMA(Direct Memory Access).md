@@ -21,20 +21,27 @@ DMA 컨트롤러가 다른 peripheral 모듈과 함께 사용되면 문제가 �
 DMA operation을 사용해서 전체적인 전력 소모를 줄여줄 수 있다.(CPU가 sleep이나 low frequency 모드가 되는 것을 허용)
 
 ## KL25Z DMA Controller
-![[Pasted image 20240601223601.png]]
-![[Pasted image 20240601223250.png]]
+<img width="622" alt="Pasted image 20240601223601" src="https://github.com/owjxyz/EECE372/assets/89694988/34389436-9894-4dc1-b0c0-488ee34311e2">
+
+<img width="688" alt="Pasted image 20240601224350" src="https://github.com/owjxyz/EECE372/assets/89694988/7aa2d875-e162-485f-b09d-869cbd7a486f">
+
 DMA 전송은 소프트웨어의 쓰기 동작 또는 하드웨어의 트리거 이벤트에 의해 발생한다.
 - DMA_MUX 하드웨어 트리거에 맞는 적절한 input 설정
 - DMAMUXx_CHCFGn control register (x=0,1,2,3)
-	 ![[Pasted image 20240601223812.png]]
+	 <img width="683" alt="Pasted image 20240601223812" src="https://github.com/owjxyz/EECE372/assets/89694988/8e48f76c-81e7-4635-9f31-038e38f49fd1">
+
 	- ENBL: 1인 경우 DMA 채널 활성화
 	- TRIG: 1인 경우 DMA 채널의 트리거링을 활성화
 	- SOURCE: 트리거 소스들 중 하나를 선택
 Controller uses a number of registers for the basic operation.
 - Source address register (SAR)
 - Destination address register (DAR)
-- DMA_DCRn register: DMA 명령을 정의해준다.![[Pasted image 20240601224350.png]]
-- DMA_DSR_BCRn register: byte count register![[Pasted image 20240601224414.png]]
+- DMA_DCRn register: DMA 명령을 정의해준다.
+- <img width="688" alt="Pasted image 20240601224350" src="https://github.com/owjxyz/EECE372/assets/89694988/4e77fbbc-12d2-4fbe-b2c9-60a35956abee">
+
+- DMA_DSR_BCRn register: byte count register
+- <img width="697" alt="Pasted image 20240601224414" src="https://github.com/owjxyz/EECE372/assets/89694988/a027caf6-e34d-489f-94ab-fb20a70fa831">
+
 Fields for defining the basic aspects of the transfer
 - BCR (DMA_DSR_BCRn 19~0)
 	- 전송해줄 바이트의 개수
@@ -53,8 +60,10 @@ Fields for defining the basic aspects of the transfer
 - AA (DMA_DCRn)
 	- 하드웨어가 주소를 자동적으로 정렬하게끔 허락한다.
 	- CPU가 32bit 연산이 제일 빠르기 때문에 4byte씩 정보를 처리해주는데 이를 위해서 자동적으로 정렬 과정을 수행해줌
-![[Pasted image 20240601230048.png]]
-![[Pasted image 20240601230313.png]]
+	- <img width="621" alt="Pasted image 20240601230048" src="https://github.com/owjxyz/EECE372/assets/89694988/150edfd7-3fd1-4e9f-a85e-a9912a13b826">
+
+	- ![Pasted image 20240601230313](https://github.com/owjxyz/EECE372/assets/89694988/7c5c3b72-07f9-490f-be08-9b78b935da0b)
+
 Fields for starting the transfer
 - ERQ() - enable request
 	- 1 -> 하드웨어 트리거에 대해서 peripheral 이 전송시작을 요구하는 것을 가능하게 함
@@ -109,8 +118,11 @@ Fields for the linked (or triggered) channel
     - 인터럽트가 사용되는 경우, EINT 플래그를 1로 설정합니다.
 10. **소프트웨어 트리거 DMA 사용 시, START 플래그 설정**:
     - 소프트웨어 트리거 DMA를 사용하는 경우, START 플래그를 설정하여 DMA 채널을 트리거합니다.
-![[Pasted image 20240601233758.png]]
-![[Pasted image 20240601233848.png]]
+
+<img width="586" alt="Pasted image 20240601233758" src="https://github.com/owjxyz/EECE372/assets/89694988/f6fb3718-306b-4eb5-a56b-a13ae54701be">
+
+<img width="710" alt="Pasted image 20240601233848" src="https://github.com/owjxyz/EECE372/assets/89694988/a3e6a33f-6b85-4b86-be6a-bb2c9aaeaa8e">
+
 - `Init_DMA_To_Copy(void)` : DMA 설정을 초기화하는 함수입니다.
     - `SIM->SCGC7 |= SIM_SCGC7_DMA_MASK;` : DMA 모듈의 클록을 활성화합니다.
     - `DMA0->DMA[0].DCR = DMA_DCR_SINC_MASK | DMA_DCR_SSIZE(0) | DMA_DCR_DINC_MASK | DMA_DCR_DSIZE(0);` : DMA 제어 레지스터(DCR)를 설정합니다. 여기서는 소스 주소 증가, 소스 크기 설정, 목적지 주소 증가, 목적지 크기 설정 등의 옵션을 설정합니다.
@@ -123,7 +135,8 @@ Fields for the linked (or triggered) channel
     - `DMA0->DMA[0].DSR_BCR &= ~DMA_DSR_BCR_DONE_MASK;` : 완료 플래그를 클리어합니다.
     - `DMA0->DMA[0].DCR |= DMA_DCR_START_MASK;` : DMA 전송을 시작합니다.
     - `while (!(DMA0->DMA[0].DSR_BCR & DMA_DSR_BCR_DONE_MASK));` : 전송이 완료될 때까지 대기합니다.
-![[Pasted image 20240601233859.png]]
+<img width="388" alt="Pasted image 20240601233859" src="https://github.com/owjxyz/EECE372/assets/89694988/c1cf4783-6cd8-437c-9243-2eaf9352a1a3">
+
 - `Test_DMA_Copy(void)` : DMA 복사를 테스트하는 함수입니다.
     - `Init_DMA_To_Copy();` : DMA 설정을 초기화합니다.
     - `for (i=0; i<ARR_SIZE; i++) { s[i] = i; d[i] = 0; }` : 소스 배열 `s`는 인덱스 값으로 초기화하고, 목적지 배열 `d`는 0으로 초기화합니다.
