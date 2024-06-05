@@ -14,7 +14,7 @@
 - ISR 함수가 메인라인 코드에서 남은 작업들과 어떻게 상호작용하는지
 Partitioning
 - ISR은 빠르고 긴급한 작업만을 수행해준다.(인터럽트와 관련된)
-<img width="728" alt="Pasted image 20240601035210" src="https://github.com/owjxyz/EECE372/assets/89694988/cd066595-3749-4a41-bbb8-3d2006aab635">
+- <img width="728" alt="Pasted image 20240601035210" src="https://github.com/owjxyz/EECE372/assets/89694988/cd066595-3749-4a41-bbb8-3d2006aab635">
 
 Communication
 - option 2/3: ISR이 즉각적으로 딜레이와 플래시 모드 변수를 업데이트한다
@@ -29,7 +29,7 @@ Communication
 	- 이때, task code가 처음 or 마지막?
 	- 시스템이 모든 input에 대해서 작업을 필요로 하면 관련된 모든 변수를 저장해주어야 한다.
 - 따라서, ISR과 main task code는  데이터를 저장하고 공간을 효율적으로 재사용하는 방법에 협동해야 한다.
-<img width="805" alt="Pasted image 20240601040958" src="https://github.com/owjxyz/EECE372/assets/89694988/1ca4c0b1-d720-4dd3-8785-b9d6e3608a52">
+- <img width="805" alt="Pasted image 20240601040958" src="https://github.com/owjxyz/EECE372/assets/89694988/1ca4c0b1-d720-4dd3-8785-b9d6e3608a52">
 
 ## Interrupt configuration
 3개의 부분으로 시스템이 구성되어야 한다.
@@ -40,7 +40,7 @@ Communication
 - 입력 없음
 - 반환 없음
 - CMSIS로 정의된 벡터 테이블로부터 이름 설정
-<img width="740" alt="Pasted image 20240601042651" src="https://github.com/owjxyz/EECE372/assets/89694988/b8519038-a251-4fee-9488-0e0683f13f1e">
+- <img width="740" alt="Pasted image 20240601042651" src="https://github.com/owjxyz/EECE372/assets/89694988/b8519038-a251-4fee-9488-0e0683f13f1e">
 
 ## Sharing data safely given preemption
 Volatile data objects
