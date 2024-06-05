@@ -193,10 +193,10 @@ Exception masking
 
 	- Critical section: exception/interrupt '무시'하는 프로그램 시퀀스
 
-	- Critical section을 위해서는 이전에 disable_irq() 수행해주고 이후에 enable 수행해주어 안전하게 마스킹이 유지되도록 해준다.
+	- Critical section을 위해서는 이전에 disable_irq() 수행해주고 이후에 enable 수행해주어 안전하게 마스킹이 유지되도록 해준다.
 
-	- 만약 critical section 수행 이전에도 disable 되어있는 상태라면, 이후에 enable 시켜주면 값이 달라짐.
+	- 만약 critical section 수행 이전에도 disable 되어있는 상태라면, 이후에 enable 시켜주면 값이 달라짐.
 
-	- masking_state = \_\_get_PRIMASK();\_\_set_PRIMASK(masking_state); 을 통해 operation 이후에도 같은 마스킹 상태를 유지하도록 해준다.
+	- masking_state = \_\_get_PRIMASK(); \_\_set_PRIMASK(masking_state); 을 통해 operation 이후에도 같은 마스킹 상태를 유지하도록 해준다.
 
 <img width="779" alt="Pasted image 20240601034131" src="https://github.com/owjxyz/EECE372/assets/89694988/7cfdfe07-8f8f-49ee-b7d0-573debf41e60">
