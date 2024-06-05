@@ -14,7 +14,8 @@
 - ISR 함수가 메인라인 코드에서 남은 작업들과 어떻게 상호작용하는지
 Partitioning
 - ISR은 빠르고 긴급한 작업만을 수행해준다.(인터럽트와 관련된)
-- ![[Pasted image 20240601035210.png]]
+<img width="728" alt="Pasted image 20240601035210" src="https://github.com/owjxyz/EECE372/assets/89694988/cd066595-3749-4a41-bbb8-3d2006aab635">
+
 Communication
 - option 2/3: ISR이 즉각적으로 딜레이와 플래시 모드 변수를 업데이트한다
 	- 전역변수와 같은 공유되는 변수를 사용한다.
@@ -28,16 +29,19 @@ Communication
 	- 이때, task code가 처음 or 마지막?
 	- 시스템이 모든 input에 대해서 작업을 필요로 하면 관련된 모든 변수를 저장해주어야 한다.
 - 따라서, ISR과 main task code는  데이터를 저장하고 공간을 효율적으로 재사용하는 방법에 협동해야 한다.
-![[Pasted image 20240601040958.png]]
+<img width="805" alt="Pasted image 20240601040958" src="https://github.com/owjxyz/EECE372/assets/89694988/1ca4c0b1-d720-4dd3-8785-b9d6e3608a52">
+
 ## Interrupt configuration
 3개의 부분으로 시스템이 구성되어야 한다.
 -> Peripheral, NVIC, CPU core
-![[Pasted image 20240601041318.png]]
+<img width="800" alt="Pasted image 20240601041318" src="https://github.com/owjxyz/EECE372/assets/89694988/b0e32d63-8bde-4bc0-9240-0db1261348ac">
+
 ## Writing ISR in C
 - 입력 없음
 - 반환 없음
 - CMSIS로 정의된 벡터 테이블로부터 이름 설정
-![[Pasted image 20240601042651.png]]
+<img width="740" alt="Pasted image 20240601042651" src="https://github.com/owjxyz/EECE372/assets/89694988/b8519038-a251-4fee-9488-0e0683f13f1e">
+
 ## Sharing data safely given preemption
 Volatile data objects
 - 공유 데이터를 사용하는 함수를 생성한다. -> 컴파일러가 데이터를 레지스터에 복사하는 명령을 생성함
@@ -53,8 +57,8 @@ Atomic object access
 	- R0만 썼다면, 이제는 r0 + r1으로 사용해야 함.
 	- 따라서 값을 load하기 위해서는 아래와 같은 과정을 거침
 	- 메모리에서 변수를 읽기 위해 두 번의 연속적인 load 작업이 필요
-	- LRD r0, [g_RGB_delay] → for the low word
-	- LDR r1, [g_RGB_delay+4] → for the high word
+	- LRD r0, \[g_RGB_delay] → for the low word
+	- LDR r1, \[g_RGB_delay+4] → for the high word
 	-   만약 data race 상황이라면, critical sections을 정의함으로써 incorrect data 문제를 해결할 수 있다.
 Data race: 코드의 critical section에서 부적절한 시점에서의 선점으로 인해 맞지 않은 프로그램 결과가 나오는 상황
 Critical section: atomically하게 실행되지 않으면, 부적절한 결과가 나오는 코드 섹션
