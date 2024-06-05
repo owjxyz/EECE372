@@ -52,7 +52,7 @@ Fields for defining the basic aspects of the transfer
 	- 10 -> 16bit
 	- 01 -> 8bit
 - SINC / DINC: SAR DAR을 데이터 사이즈(SSIZE/DSIZE)만큼 증가할지 말지 결정(1->증가 0 -> x)
-- SMOD / DMOD (DMA_DCRn)
+- SMOD / DMOD (DMA_DCRn)
 	- 0이 아닌 값의 경우, 원형 버퍼를 제공하기 위해 이동시켜주어야 하는 주소의 크기를 정의함.
 	- Circular buffer의 크기를 정의
 - CS (DMA_DCRn)
@@ -61,8 +61,7 @@ Fields for defining the basic aspects of the transfer
 	- 하드웨어가 주소를 자동적으로 정렬하게끔 허락한다.
 	- CPU가 32bit 연산이 제일 빠르기 때문에 4byte씩 정보를 처리해주는데 이를 위해서 자동적으로 정렬 과정을 수행해줌
 	- <img width="621" alt="Pasted image 20240601230048" src="https://github.com/owjxyz/EECE372/assets/89694988/150edfd7-3fd1-4e9f-a85e-a9912a13b826">
-
-	- ![Pasted image 20240601230313](https://github.com/owjxyz/EECE372/assets/89694988/7c5c3b72-07f9-490f-be08-9b78b935da0b)
+	- <img width="621" alt="Pasted image 20240601230313" src="https://github.com/owjxyz/EECE372/assets/89694988/7c5c3b72-07f9-490f-be08-9b78b935da0b">
 
 Fields for starting the transfer
 - ERQ() - enable request
