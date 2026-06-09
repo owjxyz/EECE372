@@ -204,8 +204,11 @@
     }
 
     .search-meta {
-      display: grid;
-      gap: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 0.9rem;
+      align-items: center;
+      justify-content: flex-end;
       min-width: min(100%, 260px);
     }
 
@@ -1279,11 +1282,10 @@
               <div class="hero-copy">
                 <p class="eyebrow">${esc(vaultLabel)} Vault</p>
                 <h1>검색 결과</h1>
-                <p>${trimmed ? `${esc(trimmed)}를 포함한 노트를 전부 모아 보여줍니다.` : '검색어를 입력하면 결과가 표시됩니다.'}</p>
               </div>
               <div class="panel search-meta">
-                <a class="search-back" href="${esc(pagePath())}">홈으로</a>
                 <div class="subtle">${esc(countLabel)}</div>
+                <a class="search-back" href="${esc(pagePath())}">홈으로</a>
               </div>
             </header>
 
